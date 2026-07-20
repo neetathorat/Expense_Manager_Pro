@@ -12,12 +12,18 @@ age = int(input("Enter age : "))
 height = float(input("Enter height : "))
 city = input("Enter city : ")
 
+if age < 18:
+    category = "Minor"
+else:
+    category = "Adult"
+
 print("=" * 15 + " USER PROFILE " + "=" * 15)
 
-print(f"Name   : {name}")
-print(f"Age    : {age}")
-print(f"Height : {height}")
-print(f"City   : {city}")
+print(f"Name         : {name}")
+print(f"Age          : {age}")
+print(f"Age Category : {category}")
+print(f"Height       : {height}")
+print(f"City         : {city}")
 
 
 print("=" * 15 + " DATA TYPES " + "=" * 15)
