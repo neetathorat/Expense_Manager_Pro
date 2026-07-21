@@ -12,10 +12,13 @@ age = int(input("Enter age : "))
 height = float(input("Enter height : "))
 city = input("Enter city : ")
 
+
 if age < 18:
     category = "Minor"
 else:
     category = "Adult"
+    
+
 
 print("=" * 15 + " USER PROFILE " + "=" * 15)
 
@@ -42,5 +45,36 @@ if age % 2 == 0:
 else:
     print("Age Type : Odd")
 print(f"Age Square : {age ** 2}")
+
+print("=" * 15 + " ACCESS VERIFICATION " + "=" * 15)
+
+if category == "Adult":
+    print("Age Verified")
+    department = input("Enter department(IT or AI): ")
+    years_of_experience = int(input("Enter experience: "))
+
+    if department == "IT":
+        print("Department Verified")
+
+        if years_of_experience >= 2:
+            print("Access Granted")
+            print(f"Welcome {name}")
+        else:
+            print("Access Denied: Experience Required")
+
+    else:
+        if department == "AI":
+            print("Department Verified")
+
+            if years_of_experience >= 2:
+                print("Access Granted")
+                print(f"Welcome {name}")
+            else:
+                print("Access Denied: Experience Required")
+
+        else:
+            print("Access Denied: Invalid Department")
+else:
+    print("Access Denied: Underage")
 
 print("=" * 50)
