@@ -1,7 +1,7 @@
 # AI Automation Assistant
 
 assistant_name = "AutoMate AI"
-version = "0.1"
+version = "0.5"
 
 print("=" * 15 + " AI AUTOMATION ASSISTANT " + "=" * 15)
 print(f"Assistant : {assistant_name}")
@@ -53,7 +53,7 @@ if category == "Adult":
     department = input("Enter department(IT or AI): ")
     years_of_experience = int(input("Enter experience: "))
 
-    if department == "IT":
+    if department in ("IT" , "AI"):
         print("Department Verified")
 
         if years_of_experience >= 2:
@@ -61,20 +61,31 @@ if category == "Adult":
             print(f"Welcome {name}")
         else:
             print("Access Denied: Experience Required")
-
     else:
-        if department == "AI":
-            print("Department Verified")
-
-            if years_of_experience >= 2:
-                print("Access Granted")
-                print(f"Welcome {name}")
-            else:
-                print("Access Denied: Experience Required")
-
-        else:
-            print("Access Denied: Invalid Department")
+        print("Access Denied: Invalid Department")
 else:
     print("Access Denied: Underage")
+
+print("=" * 15 + " USER STATUS " + "=" * 15)
+verified = input("Are you verified? (yes/no)").lower()
+if age >= 18 and verified =='yes':
+    print(f"Name  : {name}")
+    print(f"Age   : {age}")
+    print(f"City  : {city}\n")
+    print("Status : Verified User")
+elif age < 18:
+    print(f"Name  : {name}")
+    print(f"Age   : {age}")
+    print(f"City  : {city}\n")
+    print("Status : Not Verified User")
+    print("Reason : Age below 18")
+else:
+    print(f"Name  : {name}")
+    print(f"Age   : {age}")
+    print(f"City  : {city}\n")
+    print("Status : Not Verified User")
+    print("Reason : Verification is pending")
+
+
 
 print("=" * 50)
