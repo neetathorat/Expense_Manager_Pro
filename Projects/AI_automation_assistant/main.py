@@ -1,7 +1,7 @@
 # AI Automation Assistant
 
 assistant_name = "AutoMate AI"
-version = "0.5"
+version = "0.6"
 
 print("=" * 15 + " AI AUTOMATION ASSISTANT " + "=" * 15)
 print(f"Assistant : {assistant_name}")
@@ -67,7 +67,7 @@ else:
     print("Access Denied: Underage")
 
 print("=" * 15 + " USER STATUS " + "=" * 15)
-verified = input("Are you verified? (yes/no)").lower()
+verified = input("Are you verified? (yes/no) : ").lower()
 if age >= 18 and verified =='yes':
     print(f"Name  : {name}")
     print(f"Age   : {age}")
@@ -85,6 +85,12 @@ else:
     print(f"City  : {city}\n")
     print("Status : Not Verified User")
     print("Reason : Verification is pending")
+
+print("=" * 15 + " TASK GENERATOR " + "=" * 15)
+
+task_count = int(input("How many task IDs should AutoMate AI generate?"))
+for i in range(1,task_count+1):
+    print(f"TASK-{i:03d}")
 
 
 
