@@ -1,11 +1,22 @@
 # AI Automation Assistant
 
 assistant_name = "AutoMate AI"
-version = "0.6"
-
+version = "0.7"
 print("=" * 15 + " AI AUTOMATION ASSISTANT " + "=" * 15)
-print(f"Assistant : {assistant_name}")
-print(f"Version   : {version}")
+correct_password = "python123"
+flag = True
+while flag:
+    password = input("Enter password : ")
+    if correct_password == password:
+        print("Login Successful!")
+        print(f"Welcome to {assistant_name}")
+        print(f"Assistant : {assistant_name}")
+        print(f"Version   : {version}")
+        flag = False
+    else:
+        print("Wrong password! Try Again")
+
+
 
 name = input("Enter name : ")
 age = int(input("Enter age : "))
@@ -88,7 +99,7 @@ else:
 
 print("=" * 15 + " TASK GENERATOR " + "=" * 15)
 
-task_count = int(input("How many task IDs should AutoMate AI generate?"))
+task_count = int(input("How many task IDs should AutoMate AI generate? "))
 for i in range(1,task_count+1):
     print(f"TASK-{i:03d}")
 
