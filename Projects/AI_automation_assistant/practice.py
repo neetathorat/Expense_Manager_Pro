@@ -38,8 +38,6 @@ def show_profile(name, age, category, height,city,department, years_of_experienc
     print(f"Age Category : {category}")
     print(f"Height       : {height}")
     print(f"City         : {city}")
-    print(f"Department   : {department}")
-    print(f"Experience   : {years_of_experience}")
 
 def age_analysis(age):
     if age < 18:
@@ -59,5 +57,5 @@ if login():
 
     category = age_analysis(age)
 
-    show_profile(name, age, category, height, city,department,years_of_experience)
+    show_profile(name, age, category, height, city)
 
