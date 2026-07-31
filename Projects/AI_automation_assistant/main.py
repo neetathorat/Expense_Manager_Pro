@@ -1,4 +1,4 @@
-def login():
+def login(correct_password):
     attempt = 3
     while True:
         password = input("Enter password : ")
@@ -17,7 +17,7 @@ def login():
                 print("Access Denied")
                 return False
 
-def display_header():
+def display_header(assistant_name, version):
     print(f"Welcome to {assistant_name}")
     print(f"Assistant : {assistant_name}")
     print(f"Version   : {version}")
@@ -31,7 +31,7 @@ def collect_user_data():
     years_of_experience = int(input("Enter years of experience : "))
     return name, age, height, city, department, years_of_experience
 
-def show_profile(name, age, category, height,city,department, years_of_experience):
+def show_profile(*, name, age, category, height,city,department, years_of_experience):
     print("=" * 15 + " USER PROFILE " + "=" * 15)
     print(f"Name         : {name}")
     print(f"Age          : {age}")
@@ -41,23 +41,33 @@ def show_profile(name, age, category, height,city,department, years_of_experienc
     print(f"Department   : {department}")
     print(f"Experience   : {years_of_experience}")
 
-def age_analysis(age):
+def get_age_category(age):
     if age < 18:
         return "Minor"
     else:
-        return "Adult"         
+        return "Adult"  
 
-print("=" * 15 + " AI AUTOMATION ASSISTANT " + "=" * 15)
-assistant_name = "AutoMate AI"
-version = "0.7"
-correct_password = "python123"
-if login():
+def main():      
+    print("=" * 15 + " AI AUTOMATION ASSISTANT " + "=" * 15)
+    assistant_name = "AutoMate AI"
+    version = "0.10"
+    correct_password = "python123"
+    if login(correct_password):
 
-    display_header()
+        display_header(assistant_name, version)
 
-    name, age, height, city, department, years_of_experience = collect_user_data()
+        name, age, height, city, department, years_of_experience = collect_user_data()
 
-    category = age_analysis(age)
+        category = get_age_category(age)
 
-    show_profile(name, age, category, height, city,department,years_of_experience)
+        show_profile(
+        name=name,
+        age=age,
+        category=category,
+        height=height,
+        city=city,
+        department=department,
+        years_of_experience=years_of_experience
+    )
 
+main()
