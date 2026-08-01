@@ -17,8 +17,8 @@ def login(correct_password):
                 print("Access Denied")
                 return False
 
-def display_header(assistant_name, version):
-    print(f"Welcome to {assistant_name}")
+def display_header(assistant_name = "AutoMate AI", version = "1.1"):
+    print(f"Welcome")
     print(f"Assistant : {assistant_name}")
     print(f"Version   : {version}")
 
@@ -31,7 +31,7 @@ def collect_user_data():
     years_of_experience = int(input("Enter years of experience : "))
     return name, age, height, city, department, years_of_experience
 
-def show_profile(*, name, age, category, height,city,department, years_of_experience):
+def show_profile(name, age, category, height,city,department, years_of_experience):
     print("=" * 15 + " USER PROFILE " + "=" * 15)
     print(f"Name         : {name}")
     print(f"Age          : {age}")
@@ -41,7 +41,7 @@ def show_profile(*, name, age, category, height,city,department, years_of_experi
     print(f"Department   : {department}")
     print(f"Experience   : {years_of_experience}")
 
-def get_age_category(age):
+def determine_age_category(age):
     if age < 18:
         return "Minor"
     else:
@@ -49,16 +49,14 @@ def get_age_category(age):
 
 def main():      
     print("=" * 15 + " AI AUTOMATION ASSISTANT " + "=" * 15)
-    assistant_name = "AutoMate AI"
-    version = "0.10"
     correct_password = "python123"
     if login(correct_password):
 
-        display_header(assistant_name, version)
+        display_header()
 
         name, age, height, city, department, years_of_experience = collect_user_data()
 
-        category = get_age_category(age)
+        category = determine_age_category(age)
 
         show_profile(
         name=name,
