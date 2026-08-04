@@ -46,10 +46,47 @@ def determine_age_category(age):
         return "Minor"
     else:
         return "Adult"  
+    
+def add_task(tasks):
+    task = input("Add new task :")
+    if task in tasks:
+        print(" task is already present")
+    else:
+        tasks.append(task)
+        print("New task added successfully")
+
+def view_tasks(tasks):
+    for task in tasks:
+        print(task)
+
+def remove_task(tasks):
+    task = input("Enter task name to remove : ")
+    if task in tasks:
+        tasks.remove(task)
+        print("Task is removed successfully")
+    else:
+        print("Task is not present")
+
+def search_task(tasks):
+    task = input("Enter task name to search : ")
+    if task in tasks:
+        print("task is found")
+    else:
+        print("task is not found")
+    
+
+def menu():
+    print("=" * 5 + " AI Automation Assistant " + "=" * 5)
+    print("1. Add Task")
+    print("2. View Tasks")
+    print("3. Remove Task")
+    print("4. Search Task")
+    print("5. Exit")
 
 def main():      
     print("=" * 15 + " AI AUTOMATION ASSISTANT " + "=" * 15)
     correct_password = "python123"
+    tasks = ["Learn Python","Build Portfolio","Complete Project"]
     if login(correct_password):
 
         display_header()
@@ -65,7 +102,22 @@ def main():
         height=height,
         city=city,
         department=department,
-        years_of_experience=years_of_experience
-    )
+        years_of_experience=years_of_experience)
+        while True:
+            menu()
+            choice = int(input("Enter your choice :"))
+            if choice == 1:
+                add_task(tasks)
+            elif choice == 2:
+                view_tasks(tasks)
+            elif choice == 3:
+                remove_task(tasks)
+            elif choice == 4:
+                search_task(tasks)
+            elif choice == 5:
+                print("Thank you for using")
+                break
+            else:
+                print("Enter choice between (1 to 5) : ")
 
 main()
