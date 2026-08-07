@@ -49,3 +49,41 @@ Completed
 - Improve expense handling system
 - Start storing expense data
 - Refine application structure
+
+# Day 02 — 07 August 2026
+## Data Modeling
+
+### Objective
+Design the data structure for storing expenses.
+
+### Learned
+- Dictionary
+- List
+- List of dictionaries
+- Data modeling
+- Dictionary references and `.copy()`
+
+### Built
+Created `expense_data.py` with:
+- `expenses` list
+- `expense` dictionary
+- Expense fields: `id`, `name`, `amount`, `category`
+- Added the expense dictionary to the expenses list
+
+### Data Structure
+One expense is represented as a dictionary.
+
+Multiple expenses are stored in a list of dictionaries.
+
+### Testing
+Successfully tested:
+- Creating an expense dictionary
+- Adding the expense to the expenses list
+- Printing the stored expense data
+
+### Important Concept
+`append()` stores a reference to the dictionary.
+A copy is required only when the same dictionary object is reused and independent entries are needed.
+
+### Status
+Day 02 completed.

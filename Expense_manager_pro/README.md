@@ -49,3 +49,34 @@ Version: 0.1
 ---
 
 ## Project Structure
+
+## Project Progress
+
+### Day 01 — Project Setup
+- Created project structure
+- Created data folder
+- Created initial expense storage file
+- Designed basic application menu
+
+### Day 02 — Data Modeling
+- Created expense data model
+- Added `expense_data.py`
+- Designed expense as a dictionary
+- Designed expense collection as a list of dictionaries
+- Added fields:
+  - `id`
+  - `name`
+  - `amount`
+  - `category`
+
+## Current Data Structure
+
+One expense:
+
+```python
+{
+    "id": 1,
+    "name": "Apple",
+    "amount": 100,
+    "category": "Food"
+}

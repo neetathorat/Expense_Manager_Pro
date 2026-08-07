@@ -23,7 +23,7 @@ def view_expenses():
 
 def main():
     project_name = "Expense Manager Pro"
-    version = "0.1"
+    version = "0.2"
     project_heading(project_name,version)
     while True:
         display_menu()
