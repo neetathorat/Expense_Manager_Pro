@@ -87,3 +87,53 @@ A copy is required only when the same dictionary object is reused and independen
 
 ### Status
 Day 02 completed.
+
+# Project Log — Day 03
+
+## Date
+07 August 2026
+
+## Focus
+Data Modeling + File Organization + Expense Storage
+
+## Completed
+
+- Created `expense_data.py` for expense-related logic.
+- Imported `add_expense()` into `main.py`.
+- Created an expense dictionary using user input.
+- Added four expense fields:
+  - `id`
+  - `expense_name`
+  - `amount`
+  - `category`
+- Used `return` to send the expense dictionary from `add_expense()`.
+- Received the returned dictionary in `main.py`.
+- Stored multiple expense dictionaries inside the `expenses` list.
+- Connected `add_expense()` with the menu system.
+- Implemented `view_expenses()`.
+- Used a `for` loop to process each expense dictionary.
+- Accessed dictionary values using keys.
+- Added handling for an empty expenses list.
+- Added separators between displayed expenses.
+
+## Concepts Learned
+
+- Importing functions between Python files
+- Functions returning dictionaries
+- List of dictionaries
+- Dictionary key-value access
+- `for` loop through a list of dictionaries
+- Passing data between functions
+- `return` without a value to stop a function
+- Basic separation of responsibilities between files
+
+## Current Data Model
+
+```text
+expenses → list
+    ↓
+expense → dictionary
+    ├── id
+    ├── expense_name
+    ├── amount
+    └── category
