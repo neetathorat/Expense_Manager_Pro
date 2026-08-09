@@ -137,3 +137,80 @@ expense → dictionary
     ├── expense_name
     ├── amount
     └── category
+```
+
+# Project Log — Day 04
+
+## Date
+
+09 August 2026
+
+## Focus
+
+Exception Handling + Input Error Handling
+
+## Completed
+
+* Added exception handling using `try` and `except`.
+* Used `ValueError` to handle invalid numeric input.
+* Added error handling for invalid expense IDs.
+* Added error handling for invalid expense amounts.
+* Added error handling for non-numeric menu choices.
+* Used `continue` to return to the menu after an invalid menu choice.
+* Used `return` to stop `add_expense()` when ID or amount is invalid.
+* Prevented `None` from being added to the `expenses` list.
+* Updated `main.py` to check whether `add_expense()` returned a valid expense before storing it.
+* Tested valid and invalid user inputs.
+
+## Concepts Learned
+
+* `try`
+* `except`
+* `ValueError`
+* `finally`
+* Exception handling
+* Input validation
+* Difference between exceptions and validation
+* Using `continue` inside a loop
+* Using `return` to stop a function
+* Handling `None` returned from a function
+* Specific exception handling instead of using a bare `except`
+
+## Important Concept
+
+Exception handling and input validation are different.
+
+Example:
+
+"abc" → int("abc") → ValueError
+
+This is an exception.
+
+-100 → float("-100") → -100
+
+This is a valid number, but it may fail the application's validation rules.
+
+## Files Updated
+
+* `main.py`
+* `expense_data.py`
+
+## Testing
+
+Successfully tested:
+
+* Valid menu choice
+* Non-numeric menu choice
+* Invalid expense ID
+* Invalid expense amount
+* Valid expense creation
+* Invalid expense not being added to the `expenses` list
+* Viewing expenses after invalid input
+
+## Version
+
+0.4
+
+## Status
+
+Day 04 completed.

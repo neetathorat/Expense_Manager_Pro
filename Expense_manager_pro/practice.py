@@ -1,8 +1,6 @@
-from expense_data import add_expense
+try:
+    amount = int(input("Enter amount :"))
+    print(amount)
+except ValueError:
+    print("Invalid amount")
 
-expenses = []
-
-new_expense = add_expense()
-expenses.append(new_expense)
-
-print(expenses)

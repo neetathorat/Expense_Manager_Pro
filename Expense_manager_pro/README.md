@@ -16,7 +16,7 @@ The goal of this project is to build a complete expense management system while 
 
 ## Current Version
 
-**Version: 0.3**
+**Version: 0.4**
 
 ---
 
@@ -34,11 +34,14 @@ The goal of this project is to build a complete expense management system while 
 * Separate expense logic into `expense_data.py`
 * Import functions between Python files
 * Display expenses individually using a `for` loop
+* Exception handling for invalid numeric input
+* Invalid menu choice handling
+* Invalid expense ID handling
+* Invalid expense amount handling
+* Prevent invalid expenses from being added
 
 ### Planned
 
-* Input validation
-* Exception handling
 * Automatic expense IDs
 * Store expenses permanently
 * Expense history
@@ -114,6 +117,17 @@ Expense_Manager_Pro/
 
 ---
 
+### Day 04 — Exception Handling
+
+- Added `try` and `except` for risky operations
+- Used `ValueError` for invalid numeric input
+- Added invalid menu choice handling
+- Added invalid expense ID handling
+- Added invalid expense amount handling
+- Used `continue` to keep the menu running after invalid input
+- Prevented `None` from being added to the `expenses` list
+- Tested valid and invalid user inputs
+
 ## Current Data Structure
 
 ### One Expense
@@ -160,17 +174,16 @@ expenses = [
 
 ## Known Limitations
 
-* Invalid menu input can currently cause a `ValueError`.
-* Expense IDs are currently entered manually.
-* Expenses are currently stored only while the program is running.
-* Permanent file storage is not implemented yet.
-* Exception handling is not implemented yet.
-
+- Empty input validation is not implemented yet.
+- Expense IDs are currently entered manually.
+- Negative expense values are not validated yet.
+- Expenses are currently stored only while the program is running.
+- Permanent file storage is not implemented yet.
 ---
 
 ## Next Development Step
 
-Implement exception handling to prevent the application from crashing when invalid user input is entered.
+Implement input validation for empty and invalid expense data.
 
 ---
 

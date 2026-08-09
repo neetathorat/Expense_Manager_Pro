@@ -24,16 +24,21 @@ def view_expenses(expenses):
 
 def main():
     project_name = "Expense Manager Pro"
-    version = "0.3"
+    version = "0.4"
     project_heading(project_name,version)
     expenses = []
     while True:
         display_menu()
-        choice = int(input("Enter your choice: "))
+        try:
+            choice = int(input("Enter your choice: "))
+        except ValueError:
+            print("Invalid Choice")
+            continue
         if choice == 1:
             new_expense = add_expense()
-            expenses.append(new_expense)
-            print("Expense added successfully..!")
+            if new_expense is not None:
+                expenses.append(new_expense)
+                print("Expense added successfully..!")
         elif choice == 2:
             view_expenses(expenses)
         elif choice == 3:
