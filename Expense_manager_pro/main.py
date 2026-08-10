@@ -1,4 +1,4 @@
-from expense_data import add_expense
+from expense_data import add_expense, save_expenses, load_expenses
 def project_heading(project_name,version):
     print("=" * 60)
     print(project_name.center(60))
@@ -17,16 +17,16 @@ def view_expenses(expenses):
     for expense in expenses:
         print("-"*30)
         print(f"expense_id   : {expense['id']}")           
-        print(f"expense_name : {expense['expense_name']}")
+        print(f"name         : {expense['name']}")
         print(f"Amount       : {expense['amount']}") 
         print(f"Category     : {expense['category']}") 
          
 
 def main():
     project_name = "Expense Manager Pro"
-    version = "0.4"
+    version = "0.5"
     project_heading(project_name,version)
-    expenses = []
+    expenses = load_expenses()
     while True:
         display_menu()
         try:
@@ -38,6 +38,7 @@ def main():
             new_expense = add_expense()
             if new_expense is not None:
                 expenses.append(new_expense)
+                save_expenses(expenses)
                 print("Expense added successfully..!")
         elif choice == 2:
             view_expenses(expenses)
