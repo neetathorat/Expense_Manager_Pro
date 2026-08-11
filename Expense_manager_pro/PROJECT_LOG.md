@@ -344,3 +344,136 @@ Successfully tested:
 ## Status
 
 Day 05 completed.
+
+# Project Log — Day 06
+
+## Date
+
+11 August 2026
+
+## Focus
+
+Debugging + Input Validation
+
+## Completed
+
+* Tested the existing Expense Manager Pro application with invalid inputs.
+* Debugged the `add_expense()` function.
+* Fixed empty expense name validation.
+* Added validation to reject zero and negative expense amounts.
+* Added duplicate expense ID validation.
+* Updated `add_expense()` to receive the existing `expenses` list as a parameter.
+* Tested invalid ID input.
+* Tested invalid amount input.
+* Tested empty name input.
+* Tested duplicate ID input.
+* Confirmed invalid expenses are not added to the expenses list.
+* Confirmed duplicate IDs are rejected even when existing expenses are loaded from JSON.
+* Tested the application after making debugging changes.
+
+## Bugs Found and Fixed
+
+### Bug 1 — Empty Expense Name
+
+**Problem:**
+
+An empty expense name was accepted and the program continued.
+
+**Fix:**
+
+Added validation using:
+
+```python
+if not name:
+    print("Invalid name")
+    return
+```
+
+### Bug 2 — Zero and Negative Amounts
+
+**Problem:**
+
+Values such as `0` and `-500` were accepted because they are valid `float` values.
+
+**Fix:**
+
+Added value validation:
+
+```python
+if amount <= 0:
+    print("Invalid amount")
+    return
+```
+
+### Bug 3 — Duplicate Expense IDs
+
+**Problem:**
+
+The application allowed multiple expenses with the same ID.
+
+**Fix:**
+
+Checked the existing `expenses` list before creating a new expense.
+
+```python
+for expense in expenses:
+    if expense["id"] == expense_id:
+        print("Invalid ID")
+        return
+```
+
+Updated the function to receive the existing expense list:
+
+```python
+def add_expense(expenses):
+```
+
+And passed the list from `main.py`:
+
+```python
+add_expense(expenses)
+```
+
+## Concepts Learned
+
+* Debugging
+* Finding the difference between expected and actual behavior
+* Input validation
+* Type validation vs value validation
+* Testing invalid inputs
+* Checking existing data before creating new data
+* Passing a list to a function as a parameter
+* Understanding `return` during validation
+* Debugging data flow between `main.py` and `expense_data.py`
+
+## Testing
+
+Successfully tested:
+
+* Non-numeric ID
+* Non-numeric amount
+* Empty expense name
+* Empty category
+* Zero amount
+* Negative amount
+* Valid positive amount
+* Duplicate expense ID
+* Invalid data not being added
+* Duplicate ID detection against JSON-loaded expenses
+
+## Important Lessons
+
+* A value can have the correct data type but still be invalid for the application.
+* `try/except` handles conversion errors, while conditions handle business rules.
+* `return` stops `add_expense()` when validation fails.
+* A function should receive the data it needs through parameters.
+* Debugging requires testing actual application behavior instead of assuming the code works.
+
+## Version
+
+0.6
+
+## Status
+
+Day 06 completed.
+

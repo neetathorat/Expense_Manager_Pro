@@ -16,7 +16,7 @@ The goal of this project is to build a complete expense management system while 
 
 ## Current Version
 
-**Version: 0.4**
+**Version: 0.6**
 
 ---
 
@@ -44,6 +44,9 @@ The goal of this project is to build a complete expense management system while 
 * Load existing expenses when the program starts
 * Persistent expense data after closing the program
 * Safe file handling using `with open()`
+- Empty expense name validation
+- Zero and negative amount validation
+- Duplicate expense ID validation
 
 ### Planned
 
@@ -154,6 +157,22 @@ Expense_Manager_Pro/
 * Fixed inconsistent dictionary keys between existing JSON data and new expenses
 * Learned that an empty JSON file should contain `[]` instead of being completely blank
 
+### Day 06 — Debugging & Input Validation
+
+* Tested the application with invalid and unexpected inputs
+* Fixed empty expense name validation
+* Added validation to reject zero and negative expense amounts
+* Added duplicate expense ID validation
+* Updated `add_expense()` to receive the existing `expenses` list
+* Tested invalid ID input
+* Tested invalid amount input
+* Tested empty name input
+* Tested duplicate ID input
+* Confirmed invalid expenses are not added to the `expenses` list
+* Confirmed duplicate IDs are rejected, including IDs already loaded from JSON
+* Tested the application after debugging changes
+
+
 ---
 
 ## Current Data Structure
@@ -238,12 +257,14 @@ Python expenses list
 * Expense editing and deletion are not implemented yet.
 * Expense search and filtering are not implemented yet.
 * Monthly summaries and reports are not implemented yet.
+- Empty category validation may need further improvement
+- Expense IDs are currently entered manually
 
 ---
 
 ## Next Development Step
 
-Improve expense input validation and continue expanding the expense management features.
+Improve remaining input validation and begin implementing expense management operations such as editing, deleting, and searching expenses.
 
 ---
 
@@ -270,3 +291,8 @@ This project is being used to learn and practice:
 * Persistent data storage
 * Relative file paths
 * Real-world project development workflow
+- Debugging
+- Testing invalid inputs
+- Type validation vs value validation
+- Data validation
+- Debugging function data flow

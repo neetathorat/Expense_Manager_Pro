@@ -24,7 +24,7 @@ def view_expenses(expenses):
 
 def main():
     project_name = "Expense Manager Pro"
-    version = "0.5"
+    version = "0.6"
     project_heading(project_name,version)
     expenses = load_expenses()
     while True:
@@ -35,7 +35,7 @@ def main():
             print("Invalid Choice")
             continue
         if choice == 1:
-            new_expense = add_expense()
+            new_expense = add_expense(expenses)
             if new_expense is not None:
                 expenses.append(new_expense)
                 save_expenses(expenses)
