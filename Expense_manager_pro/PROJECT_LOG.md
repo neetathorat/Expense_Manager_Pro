@@ -477,3 +477,28 @@ Successfully tested:
 
 Day 06 completed.
 
+# Day 07 - 12 August
+
+## Version 1.0 Release
+
+### Completed
+
+- Added expense
+- View expenses
+- Calculate total expenses
+- Save expenses to JSON
+- Load expenses from JSON
+- Added rupee symbol to total display
+- Tested data persistence after restarting the program
+
+### Testing
+
+- Added multiple expenses
+- Verified expenses are displayed correctly
+- Verified total expense calculation
+- Restarted the program
+- Verified saved expenses and total were still available
+
+### Git
+
+- Prepared Expense Manager Pro for Version 1.0 release
