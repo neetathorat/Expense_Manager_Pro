@@ -1,4 +1,5 @@
-from expense_data import add_expense, save_expenses, load_expenses
+import expenses
+import database
 def project_heading(project_name,version):
     print("=" * 60)
     print(project_name.center(60))
@@ -10,31 +11,13 @@ def display_menu():
     print("1. Add Expense")
     print("2. View Expense")
     print("3. Show Total")
-    print("4. Exit")   
-    
-def view_expenses(expenses):
-    if not expenses:
-        print("No expense found.")
-        return
-    for expense in expenses:
-        print(f"expense_id   : {expense['id']}")           
-        print(f"name         : {expense['name']}")
-        print(f"Amount       : {expense['amount']}") 
-        print(f"Category     : {expense['category']}") 
-        print("-"*30)
-         
-def calculate_total(expenses):
-    total = 0
-    for expense in expenses:
-        total += expense["amount"]
-    return total
-
+    print("4. Exit")      
 
 def main():
     project_name = "Expense Manager Pro"
     version = "1.0"
     project_heading(project_name,version)
-    expenses = load_expenses()
+    expense_list = database.load_expenses()
     while True:
         display_menu()
         try:
@@ -44,15 +27,15 @@ def main():
             print("Invalid Choice")
             continue
         if choice == 1:
-            new_expense = add_expense(expenses)
+            new_expense = expenses.add_expense(expense_list)
             if new_expense is not None:
-                expenses.append(new_expense)
-                save_expenses(expenses)
+                expense_list.append(new_expense)
+                database.save_expenses(expense_list)
                 print("Expense added successfully..!")
         elif choice == 2:
-            view_expenses(expenses)
+            expenses.view_expenses(expense_list)
         elif choice == 3:
-            total = calculate_total(expenses)
+            total = expenses.calculate_total(expense_list)
             print(f"Total Amount Spent : ₹ {total}")  #\u20b9 is unicode for indian rupee symbol
         elif choice == 4:
             print(f"Thank you for using {project_name} !!!")

@@ -50,6 +50,10 @@ The goal of this project is to build a complete expense management system while 
 - Calculate total expenses
 - Display total amount spent
 - Display total using the Indian Rupee symbol (₹)
+- Separate expense logic into `expenses.py`
+- Separate JSON storage logic into `database.py`
+- Importing and using functions from project modules
+- Module-based project organization
 
 ### Planned
 
@@ -72,18 +76,49 @@ The goal of this project is to build a complete expense management system while 
 ## Project Structure
 
 ```text
-Expense_Manager_Pro/
+Expense_manager_pro/
 │
 ├── main.py
-├── expense_data.py
+├── expenses.py
+├── database.py
 ├── README.md
 ├── project_log.md
-│
 └── data/
     └── expenses.json
-```
+    
+    ```
 
 ---
+
+
+```
+## Module Responsibilities
+
+### `main.py`
+
+Controls the application flow.
+
+- Displays the project heading
+- Displays the menu
+- Gets the user's choice
+- Controls which operation is executed
+
+### `expenses.py`
+
+Contains expense-related operations.
+
+- `add_expense()`
+- `view_expenses()`
+- `calculate_total()`
+
+### `database.py`
+
+Handles JSON data storage.
+
+- `save_expenses()`
+- `load_expenses()`
+---
+
 
 ## Project Progress
 
@@ -184,6 +219,21 @@ Expense_Manager_Pro/
 - Verified saved expenses and calculated total after restart
 - Completed core Version 1.0 functionality
 
+### Day 08 — 13 August 2026
+
+- Created `expenses.py` for expense-related operations
+- Created `database.py` for JSON data storage
+- Kept `main.py` as the application controller
+- Moved `add_expense()`, `view_expenses()`, and `calculate_total()` into `expenses.py`
+- Moved `save_expenses()` and `load_expenses()` into `database.py`
+- Imported project modules into `main.py`
+- Used `module.function()` to call functions from modules
+- Learned the difference between `import module` and `from module import function`
+- Separated application control, expense logic, and data storage responsibilities
+- Fixed a naming collision between the `expenses` module and the expense list by using `expense_list`
+- Tested the application after the module refactor
+- Verified Add Expense, View Expenses, Calculate Total, and JSON persistence
+
 
 ---
 
@@ -274,8 +324,9 @@ Python expenses list
 
 ## Next Development Step
 
-Begin implementing expense management operations such as editing, deleting, and searching expenses.
-
+- Understand professional module dependency design
+- Review the dependency relationship between `main.py`, `expenses.py`, and `database.py`
+- Refine the module architecture if required
 ---
 
 ## Learning Focus
@@ -308,3 +359,9 @@ This project is being used to learn and practice:
 - Debugging function data flow
 - Calculating values from a list of dictionaries
 - Testing data persistence
+- Python modules
+- Creating modules
+- `import module`
+- `from module import function`
+- Module responsibilities
+- Basic module dependency

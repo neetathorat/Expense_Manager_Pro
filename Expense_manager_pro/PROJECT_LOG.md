@@ -502,3 +502,60 @@ Day 06 completed.
 ### Git
 
 - Prepared Expense Manager Pro for Version 1.0 release
+
+# Day 08 - 13 August 2026
+
+## Focus
+
+Python Modules + Separation of Responsibilities
+
+## Completed
+
+- Created `expenses.py` for expense-related operations.
+- Created `database.py` for JSON data storage.
+- Kept `main.py` as the application controller.
+- Moved `add_expense()`, `view_expenses()`, and `calculate_total()` into `expenses.py`.
+- Moved `save_expenses()` and `load_expenses()` into `database.py`.
+- Imported the `expenses` module into `main.py`.
+- Imported the `database` module into `main.py`.
+- Used `module.function()` to call functions from different modules.
+- Tested the application after separating the modules.
+- Confirmed Add Expense, View Expenses, Calculate Total, and JSON persistence are working.
+
+## Concepts Learned
+
+- What a Python module is
+- Creating modules using separate `.py` files
+- `import module`
+- Calling functions using `module.function()`
+- Difference between `import module` and `from module import function`
+- Separation of responsibilities
+- Basic module dependency
+- Module name vs variable name
+
+## Problem Found
+
+A naming collision occurred between the `expenses` module and the `expenses` list.
+
+The code attempted to use:
+
+`expenses.add_expense()`
+
+but `expenses` referred to the expense list instead of the module.
+
+## Fix
+
+Renamed the expense list variable to `expense_list`.
+
+This made the responsibilities clear:
+
+- `expenses` → module
+- `expense_list` → list of expense dictionaries
+- `expense` → one expense dictionary
+
+## Current Module Structure
+
+```text
+main.py
+├── expenses.py
+└── database.py
