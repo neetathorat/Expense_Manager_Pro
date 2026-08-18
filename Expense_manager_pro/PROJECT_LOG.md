@@ -503,7 +503,7 @@ Day 06 completed.
 
 - Prepared Expense Manager Pro for Version 1.0 release
 
-# Day 08 - 13 August 2026
+# Day 08 & 09 - 13 & 14 August 2026
 
 ## Focus
 
@@ -559,3 +559,58 @@ This made the responsibilities clear:
 main.py
 ├── expenses.py
 └── database.py
+```
+# Day 10 - 15 August 2026
+
+## Focus
+
+Object-Oriented Programming + Refactoring Expense Manager
+
+## Objective
+
+Convert the expense-related functions into an `ExpenseManager` class and use objects to manage expense data.
+
+## Completed
+
+- Learned the basic concepts of Object-Oriented Programming in Python.
+- Created the `ExpenseManager` class in `expenses.py`.
+- Created an `ExpenseManager` object from `main.py`.
+- Added a constructor using `__init__()`.
+- Created `self.expense_list` as an instance attribute.
+- Converted `add_expense()` from a standalone function into a method.
+- Converted `view_expenses()` from a standalone function into a method.
+- Converted `calculate_total()` from a standalone function into a method.
+- Removed the need to pass `expense_list` to each expense method.
+- Used `self.expense_list` to maintain the object's expense data.
+- Connected `ExpenseManager` with `database.py`.
+- Loaded existing expenses when the `ExpenseManager` object is created.
+- Saved updated expenses after successfully adding an expense.
+- Updated `main.py` to control the application through the `ExpenseManager` object.
+- Removed the old function-based calls from the application flow.
+- Changed `add_expense()` to return `True` on success and `False` on validation failure.
+
+## OOP Concepts Learned
+
+- Class
+- Object
+- Constructor
+- `__init__()`
+- `self`
+- Instance attributes
+- Methods
+- Object state
+- Basic encapsulation
+
+## Important Concepts
+
+### Class
+
+`ExpenseManager` is the class that defines the structure and behavior of an expense manager object.
+
+### Object
+
+An object is created from the class:
+
+```python
+manager = expenses.ExpenseManager()
+```

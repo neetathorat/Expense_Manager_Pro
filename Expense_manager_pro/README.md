@@ -54,6 +54,12 @@ The goal of this project is to build a complete expense management system while 
 - Separate JSON storage logic into `database.py`
 - Importing and using functions from project modules
 - Module-based project organization
+- Object-Oriented Programming structure
+- Created ExpenseManager class
+- Converted expense functions into methods
+- Added instance attribute for expense data
+- Integrated ExpenseManager with JSON database operations
+- Updated main.py to control the application through an ExpenseManager object
 
 ### Planned
 
@@ -62,7 +68,6 @@ The goal of this project is to build a complete expense management system while 
 - Monthly expense summary
 - Budget tracking
 - Data analysis
-- Object-Oriented Programming structure
 - AI-based spending insights
 ---
 
@@ -105,11 +110,15 @@ Controls the application flow.
 
 ### `expenses.py`
 
-Contains expense-related operations.
+Contains the `ExpenseManager` class and expense-related operations.
 
+- `ExpenseManager`
 - `add_expense()`
 - `view_expenses()`
 - `calculate_total()`
+- Maintains expense data through `self.expense_list`
+- Loads existing expenses through `database.py`
+- Saves updated expenses through `database.py`
 
 ### `database.py`
 
@@ -219,7 +228,7 @@ Handles JSON data storage.
 - Verified saved expenses and calculated total after restart
 - Completed core Version 1.0 functionality
 
-### Day 08 — 13 August 2026
+### Day 08 — 13 & 14 August 2026
 
 - Created `expenses.py` for expense-related operations
 - Created `database.py` for JSON data storage
@@ -233,6 +242,24 @@ Handles JSON data storage.
 - Fixed a naming collision between the `expenses` module and the expense list by using `expense_list`
 - Tested the application after the module refactor
 - Verified Add Expense, View Expenses, Calculate Total, and JSON persistence
+
+### Day 10 — Object-Oriented Programming — 15 August 2026
+
+- Learned the basic concepts of Object-Oriented Programming in Python
+- Learned class, object, constructor, `self`, instance attributes, and methods
+- Created the `ExpenseManager` class
+- Created an `ExpenseManager` object from `main.py`
+- Added `__init__()` to initialize the object's expense data
+- Converted `add_expense()` into a method
+- Converted `view_expenses()` into a method
+- Converted `calculate_total()` into a method
+- Replaced passing `expense_list` between functions with `self.expense_list`
+- Connected `ExpenseManager` with `database.py`
+- Loaded existing expenses through the `ExpenseManager` constructor
+- Saved newly added expenses through `database.save_expenses()`
+- Updated `main.py` to use the `ExpenseManager` object
+- Updated `add_expense()` to return `True` on success and `False` on validation failure
+- Tested adding, viewing, calculating totals, saving, and loading expenses after the OOP refactor
 
 
 ---
@@ -298,6 +325,22 @@ json.load()
         ↓
 Python expenses list
 ```
+### OOP Data Flow
+
+```text
+main.py
+    ↓
+ExpenseManager object
+    ↓
+self.expense_list
+    ↓
+add_expense()
+view_expenses()
+calculate_total()
+    ↓
+database.py
+    ↓
+expenses.json
 
 ---
 
@@ -365,3 +408,21 @@ This project is being used to learn and practice:
 - `from module import function`
 - Module responsibilities
 - Basic module dependency
+- Object-Oriented Programming
+- Classes
+- Objects
+- Constructors
+- `__init__()`
+- `self`
+- Instance attributes
+- Methods
+- Object state
+- Basic encapsulation
+- OOP-based project refactoring
+
+## Next Development Step
+
+- Review the completed OOP refactor
+- Test the complete application
+- Commit the OOP changes to Git
+- Continue improving the project structure

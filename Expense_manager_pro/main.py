@@ -1,5 +1,5 @@
 import expenses
-import database
+
 def project_heading(project_name,version):
     print("=" * 60)
     print(project_name.center(60))
@@ -17,7 +17,7 @@ def main():
     project_name = "Expense Manager Pro"
     version = "1.0"
     project_heading(project_name,version)
-    expense_list = database.load_expenses()
+    manager = expenses.ExpenseManager()
     while True:
         display_menu()
         try:
@@ -27,15 +27,12 @@ def main():
             print("Invalid Choice")
             continue
         if choice == 1:
-            new_expense = expenses.add_expense(expense_list)
-            if new_expense is not None:
-                expense_list.append(new_expense)
-                database.save_expenses(expense_list)
-                print("Expense added successfully..!")
+            manager.add_expense()
+            print("Expense added successfully..!")
         elif choice == 2:
-            expenses.view_expenses(expense_list)
+            manager.view_expenses()
         elif choice == 3:
-            total = expenses.calculate_total(expense_list)
+            total = manager.calculate_total()
             print(f"Total Amount Spent : ₹ {total}")  #\u20b9 is unicode for indian rupee symbol
         elif choice == 4:
             print(f"Thank you for using {project_name} !!!")
