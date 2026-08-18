@@ -10,8 +10,10 @@ def display_menu():
     print("-" * 30)
     print("1. Add Expense")
     print("2. View Expense")
-    print("3. Show Total")
-    print("4. Exit")      
+    print("3. Edit Expense")
+    print("4. Remove Expense")
+    print("5. Show Total")
+    print("6. Exit")      
 
 def main():
     project_name = "Expense Manager Pro"
@@ -28,16 +30,21 @@ def main():
             continue
         if choice == 1:
             manager.add_expense()
-            print("Expense added successfully..!")
+            if True:
+                print("Expense added successfully..!")
         elif choice == 2:
             manager.view_expenses()
         elif choice == 3:
+            manager.edit_expense()
+        elif choice == 4:
+            manager.remove_expense()
+        elif choice == 5:
             total = manager.calculate_total()
             print(f"Total Amount Spent : ₹ {total}")  #\u20b9 is unicode for indian rupee symbol
-        elif choice == 4:
+        elif choice == 6:
             print(f"Thank you for using {project_name} !!!")
             break
         else:
-            print("Invalid Choice. Please enter right choice between(1 to 4) :")
+            print("Invalid Choice. Please enter right choice between(1 to 6) :")
 
 main()

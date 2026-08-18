@@ -614,3 +614,73 @@ An object is created from the class:
 ```python
 manager = expenses.ExpenseManager()
 ```
+
+# Day 11 & 12 - 16 & 17 August 2026
+
+## Focus
+
+CRUD Operations + Expense Management
+
+## Objective
+
+Extend the `ExpenseManager` class with Update and Delete operations and complete the CRUD functionality of the application.
+
+## Completed
+
+- Added `edit_expense()` method to the `ExpenseManager` class.
+- Added `remove_expense()` method to the `ExpenseManager` class.
+- Used expense ID to find a specific expense.
+- Used a `for` loop to search through `self.expense_list`.
+- Used `expense["id"] == expense_id` to identify the required expense.
+- Updated expense name, amount, and category through `edit_expense()`.
+- Removed the selected expense from `self.expense_list`.
+- Saved edited expenses to JSON using `database.save_expenses()`.
+- Saved removed expenses to JSON using `database.save_expenses()`.
+- Added validation for edited expense name.
+- Added validation for edited expense amount.
+- Added validation for edited expense category.
+- Added error handling for invalid expense IDs.
+- Added Edit Expense option to the main menu.
+- Added Remove Expense option to the main menu.
+- Updated `main.py` to call the correct `ExpenseManager` methods.
+- Tested Add, View, Edit, Remove, and Calculate Total operations.
+
+## CRUD Operations
+
+```text
+Create
+  ↓
+add_expense()
+  ↓
+Add new expense
+  ↓
+Save to JSON
+
+
+Read
+  ↓
+view_expenses()
+  ↓
+Display stored expenses
+
+
+Update
+  ↓
+edit_expense()
+  ↓
+Find expense by ID
+  ↓
+Update name, amount, category
+  ↓
+Save to JSON
+
+
+Delete
+  ↓
+remove_expense()
+  ↓
+Find expense by ID
+  ↓
+Remove expense
+  ↓
+Save to JSON

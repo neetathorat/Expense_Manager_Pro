@@ -60,7 +60,16 @@ The goal of this project is to build a complete expense management system while 
 - Added instance attribute for expense data
 - Integrated ExpenseManager with JSON database operations
 - Updated main.py to control the application through an ExpenseManager object
-
+- Edit expense feature
+- Remove expense feature
+- Update expense name, amount, and category
+- Find expenses by expense ID
+- Validate edited expense name
+- Validate edited expense amount
+- Validate edited expense category
+- Save edited expenses to JSON
+- Save removed expenses to JSON
+- Handle invalid expense IDs during edit and remove operations
 ### Planned
 
 - Automatic expense IDs
@@ -115,6 +124,8 @@ Contains the `ExpenseManager` class and expense-related operations.
 - `ExpenseManager`
 - `add_expense()`
 - `view_expenses()`
+- `edit_expense()`
+- `remove_expense()`
 - `calculate_total()`
 - Maintains expense data through `self.expense_list`
 - Loads existing expenses through `database.py`
@@ -148,7 +159,6 @@ Handles JSON data storage.
 ### Day 02 — Data Modeling
 
 - Created expense data model
-- Added `expense_data.py`
 - Designed one expense as a dictionary
 - Designed the expense collection as a list of dictionaries
 - Added fields:
@@ -261,6 +271,25 @@ Handles JSON data storage.
 - Updated `add_expense()` to return `True` on success and `False` on validation failure
 - Tested adding, viewing, calculating totals, saving, and loading expenses after the OOP refactor
 
+### Day 11 & 12 — CRUD Operations — 16 & 17 August 2026
+
+- Implemented CRUD operations in the `ExpenseManager` class
+- Added `edit_expense()` method
+- Added `remove_expense()` method
+- Used expense ID to find a specific expense
+- Used a `for` loop to search through `self.expense_list`
+- Updated expense name, amount, and category
+- Removed expenses from `self.expense_list`
+- Saved edited expenses to JSON
+- Saved removed expenses to JSON
+- Added validation for edited expense name
+- Added validation for edited expense amount
+- Added validation for edited expense category
+- Added invalid ID handling for Edit and Remove
+- Updated the main menu with Edit Expense and Remove Expense options
+- Corrected menu control flow to call the appropriate methods
+- Tested Add, View, Edit, Remove, and Calculate Total operations
+- Tested persistence of edited and removed expenses after restarting the application
 
 ---
 
@@ -343,34 +372,40 @@ database.py
 expenses.json
 
 ---
-
+```
 ## Current Menu
 
 ```text
 1. Add Expense
-2. View Expenses
-3. Show Total
-4. Exit
-```
-
+2. View Expense
+3. Edit Expense
+4. Remove Expense
+5. Show Total
+6. Exit
 ---
-
+```
 ## Known Limitations
 
 - Expense IDs are currently entered manually.
-- Expense editing and deletion are not implemented yet.
 - Expense search and filtering are not implemented yet.
 - Monthly summaries and reports are not implemented yet.
 - Expense categories are stored but category-based operations are not implemented yet.
-
 ---
 
 ## Next Development Step
 
-- Understand professional module dependency design
-- Review the dependency relationship between `main.py`, `expenses.py`, and `database.py`
-- Refine the module architecture if required
----
+- Review and test the complete CRUD implementation
+- Improve code quality and validation
+- Review the `ExpenseManager` class for further refactoring
+- Commit the CRUD changes to Git
+- Continue improving the project structure---
+
+## Git Progress
+
+- Version 1.0 released
+- OOP refactor completed
+- CRUD operations implemented
+- Next commit: Add CRUD expense management operations
 
 ## Learning Focus
 
@@ -419,10 +454,3 @@ This project is being used to learn and practice:
 - Object state
 - Basic encapsulation
 - OOP-based project refactoring
-
-## Next Development Step
-
-- Review the completed OOP refactor
-- Test the complete application
-- Commit the OOP changes to Git
-- Continue improving the project structure

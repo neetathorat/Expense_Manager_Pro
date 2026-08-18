@@ -37,3 +37,9 @@ def view_expenses(expense_list):
         print(f"Amount       : {expense['amount']}") 
         print(f"Category     : {expense['category']}") 
         print("-"*30)
+
+def calculate_total(expense_list):
+    total = 0
+    for expense in expense_list:
+        total += expense["amount"]
+    return total
