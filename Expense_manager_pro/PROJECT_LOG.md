@@ -753,3 +753,97 @@ handles JSON data storage
 ## Status
 
 Day 13 completed.
+
+# Day 14 - 19 August 2026
+
+## Version 2.0 Release
+
+### Focus
+
+Project Structure + Code Quality + Documentation + Release Preparation
+
+### Objective
+
+Finalize the current Expense Manager Pro implementation as Version 2.0 by reviewing the project structure, verifying the separation of responsibilities, updating project documentation, and checking the Git history.
+
+## Completed
+
+* Reviewed the complete project structure.
+* Verified that `main.py` is responsible for controlling application flow.
+* Verified that `expenses.py` contains expense management logic through the `ExpenseManager` class.
+* Verified that `database.py` handles JSON data persistence.
+* Verified that `data/expenses.json` is used for persistent expense storage.
+* Reviewed the separation of responsibilities between modules.
+* Reviewed the Git commit history.
+* Confirmed the project history reflects the major development stages.
+* Updated the project documentation for the Version 2.0 release.
+* Reviewed the README and project log before creating the final release commit.
+* Verified the application after the previous code quality and CRUD changes.
+* Confirmed the working tree is clean before the release.
+
+## Current Project Structure
+
+```text
+Expense_Manager_Pro/
+│
+├── data/
+│   └── expenses.json
+│
+├── main.py
+├── expenses.py
+├── database.py
+├── README.md
+└── PROJECT_LOG.md
+```
+
+## Module Responsibilities
+
+```text
+main.py
+    ↓
+Controls application flow and menu
+
+expenses.py
+    ↓
+ExpenseManager
+    ↓
+Handles expense operations
+
+database.py
+    ↓
+Handles JSON data persistence
+
+data/expenses.json
+    ↓
+Stores persistent expense data
+```
+
+## Current Application Capabilities
+
+* Add expenses
+* View expenses
+* Calculate total expenses
+* Edit expenses
+* Remove expenses
+* Validate user input
+* Prevent duplicate expense IDs
+* Save expenses to JSON
+* Load expenses from JSON
+* Preserve expense data after restarting the application
+
+## Git Verification
+
+* Reviewed Git commit history.
+* Confirmed the project history contains the major development stages.
+* Returned the repository to the correct pre-release state before finalizing the Version 2 documentation.
+* Updated the README and PROJECT_LOG before the final Version 2 release commit.
+* Verified that the working tree is clean before committing.
+
+## Version
+
+**2.0**
+
+## Release Status
+
+**Version 2.0 completed.**
+

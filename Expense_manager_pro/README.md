@@ -16,7 +16,7 @@ The goal of this project is to build a complete expense management system while 
 
 ## Current Version
 
-**Version: 1.0**
+**Version: 2.0**
 
 ---
 
@@ -91,16 +91,16 @@ The goal of this project is to build a complete expense management system while 
 ## Project Structure
 
 ```text
-Expense_manager_pro/
+Expense_Manager_Pro/
+│
+├── data/
+│   └── expenses.json
 │
 ├── main.py
 ├── expenses.py
 ├── database.py
 ├── README.md
-├── project_log.md
-└── data/
-    └── expenses.json
-    
+└── PROJECT_LOG.md    
     ```
 
 ---
@@ -128,9 +128,8 @@ Contains the `ExpenseManager` class and expense-related operations.
 - `edit_expense()`
 - `remove_expense()`
 - `calculate_total()`
-- Maintains expense data through `self.expenses`
-- Loads existing expenses through `database.py`
-- Saves updated expenses through `database.py`
+- Maintains the expense data
+- Uses `database.py` for loading and saving JSON data
 
 ### `database.py`
 
@@ -138,7 +137,6 @@ Handles JSON data storage.
 
 - `save_expenses()`
 - `load_expenses()`
----
 
 
 ## Project Progress
@@ -278,9 +276,9 @@ Handles JSON data storage.
 - Added `edit_expense()` method
 - Added `remove_expense()` method
 - Used expense ID to find a specific expense
-- Used a `for` loop to search through `self.expense_list`
+- Used a `for` loop to search through `self.expenses`
 - Updated expense name, amount, and category
-- Removed expenses from `self.expense_list`
+- Removed expenses from `self.expenses`
 - Saved edited expenses to JSON
 - Saved removed expenses to JSON
 - Added validation for edited expense name
@@ -302,6 +300,16 @@ Handles JSON data storage.
 - Fixed the expense list insertion in `add_expense()`
 - Updated `main.py` to use the Boolean result returned by `add_expense()`
 - Reviewed separation of responsibilities between project modules
+
+### Day 14 — Version 2.0 Release — 19 August 2026
+
+- Reviewed the complete project structure
+- Verified separation of responsibilities between `main.py`, `expenses.py`, and `database.py`
+- Reviewed the Git commit history
+- Updated project documentation for Version 2.0
+- Reviewed README and PROJECT_LOG before the release
+- Verified the application after the previous refactoring and CRUD changes
+- Prepared the project for the Version 2.0 release
 
 ## Current Data Structure
 
@@ -387,12 +395,12 @@ expenses.json
 
 ```text
 1. Add Expense
-2. View Expense
+2. View Expenses
 3. Edit Expense
 4. Remove Expense
 5. Show Total
 6. Exit
----
+
 ```
 ## Known Limitations
 
@@ -400,22 +408,25 @@ expenses.json
 - Expense search and filtering are not implemented yet.
 - Monthly summaries and reports are not implemented yet.
 - Expense categories are stored but category-based operations are not implemented yet.
----
+- Automated tests are not implemented yet.
+
 
 ## Next Development Step
 
-- Complete code quality review
-- Test the complete application after refactoring
-- Review duplicated validation logic
-- Review return-value consistency across `ExpenseManager` methods
-- Commit the code quality improvements to Git
+- Improve validation design
+- Review and reduce duplicated validation logic
+- Improve expense ID management
+- Add automated testing
+- Improve application architecture before adding larger features
 
 ## Git Progress
 
 - Version 1.0 released
+- Project refactored into modules
 - OOP refactor completed
 - CRUD operations implemented
-- Next commit: Add CRUD expense management operations
+- Code quality improvements completed
+- Version 2.0 released
 
 ## Learning Focus
 
