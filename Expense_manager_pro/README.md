@@ -70,8 +70,9 @@ The goal of this project is to build a complete expense management system while 
 - Save edited expenses to JSON
 - Save removed expenses to JSON
 - Handle invalid expense IDs during edit and remove operations
-### Planned
 
+
+### Planned
 - Automatic expense IDs
 - Expense categories and category-based operations
 - Monthly expense summary
@@ -127,7 +128,7 @@ Contains the `ExpenseManager` class and expense-related operations.
 - `edit_expense()`
 - `remove_expense()`
 - `calculate_total()`
-- Maintains expense data through `self.expense_list`
+- Maintains expense data through `self.expenses`
 - Loads existing expenses through `database.py`
 - Saves updated expenses through `database.py`
 
@@ -249,7 +250,7 @@ Handles JSON data storage.
 - Used `module.function()` to call functions from modules
 - Learned the difference between `import module` and `from module import function`
 - Separated application control, expense logic, and data storage responsibilities
-- Fixed a naming collision between the `expenses` module and the expense list by using `expense_list`
+- Fixed a naming collision between the `expenses` module and the expense list by using `expenses`
 - Tested the application after the module refactor
 - Verified Add Expense, View Expenses, Calculate Total, and JSON persistence
 
@@ -263,7 +264,7 @@ Handles JSON data storage.
 - Converted `add_expense()` into a method
 - Converted `view_expenses()` into a method
 - Converted `calculate_total()` into a method
-- Replaced passing `expense_list` between functions with `self.expense_list`
+- Replaced passing `expense_list` between functions with `self.expenses`
 - Connected `ExpenseManager` with `database.py`
 - Loaded existing expenses through the `ExpenseManager` constructor
 - Saved newly added expenses through `database.save_expenses()`
@@ -292,6 +293,15 @@ Handles JSON data storage.
 - Tested persistence of edited and removed expenses after restarting the application
 
 ---
+### Day 13 — Code Quality — 18 August 2026
+
+- Improved naming consistency
+- Added module documentation and function docstrings
+- Removed unnecessary comments
+- Improved code formatting and spacing
+- Fixed the expense list insertion in `add_expense()`
+- Updated `main.py` to use the Boolean result returned by `add_expense()`
+- Reviewed separation of responsibilities between project modules
 
 ## Current Data Structure
 
@@ -361,7 +371,7 @@ main.py
     ↓
 ExpenseManager object
     ↓
-self.expense_list
+self.expenses
     ↓
 add_expense()
 view_expenses()
@@ -394,11 +404,11 @@ expenses.json
 
 ## Next Development Step
 
-- Review and test the complete CRUD implementation
-- Improve code quality and validation
-- Review the `ExpenseManager` class for further refactoring
-- Commit the CRUD changes to Git
-- Continue improving the project structure---
+- Complete code quality review
+- Test the complete application after refactoring
+- Review duplicated validation logic
+- Review return-value consistency across `ExpenseManager` methods
+- Commit the code quality improvements to Git
 
 ## Git Progress
 
@@ -454,3 +464,11 @@ This project is being used to learn and practice:
 - Object state
 - Basic encapsulation
 - OOP-based project refactoring
+- Code quality
+- Naming conventions
+- Docstrings
+- Useful comments
+- Code formatting
+- Function responsibility
+- Code readability
+- Maintainable code structure

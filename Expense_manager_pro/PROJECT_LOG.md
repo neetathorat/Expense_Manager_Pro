@@ -684,3 +684,72 @@ Find expense by ID
 Remove expense
   ↓
 Save to JSON
+```
+
+# Day 13 - 18 August 2026
+
+## Focus
+
+Code Quality + Documentation + Code Structure
+
+## Objective
+
+Improve the readability, consistency, and maintainability of the existing Expense Manager Pro code without adding new features.
+
+## Completed
+
+* Improved naming consistency in the project.
+* Reviewed function and variable names for clarity.
+* Added module documentation to `database.py`.
+* Added class documentation to `ExpenseManager`.
+* Added docstrings to important methods.
+* Removed unnecessary comments.
+* Improved code formatting and spacing.
+* Fixed the incorrect use of `self.expenses(new_expense)` in `add_expense()`.
+* Changed it to `self.expenses.append(new_expense)` to correctly add the expense to the list.
+* Updated `main.py` to use the Boolean result returned by `add_expense()`.
+* Removed the incorrect `if True:` condition.
+* Reviewed the separation of responsibilities between `main.py`, `expenses.py`, and `database.py`.
+
+## Concepts Learned
+
+* Code readability
+* Naming conventions
+* Docstrings
+* Useful vs unnecessary comments
+* Function responsibility
+* Code formatting
+* Returning values from functions
+* Using returned values in the calling function
+* Maintaining separation of responsibilities between modules
+
+## Important Lessons
+
+* Clear names make code easier to understand without additional explanation.
+* Docstrings should explain the purpose of a class or function.
+* Comments should explain why something is done, not simply repeat what the code does.
+* A list must use a list operation such as `append()` to add a new item.
+* Returning a Boolean value is useful when the calling code needs to know whether an operation succeeded.
+* Code quality improvement should not change existing application behavior unnecessarily.
+
+## Current Structure
+
+```text
+main.py
+    ↓
+controls application flow
+
+expenses.py
+    ↓
+ExpenseManager
+    ↓
+handles expense operations
+
+database.py
+    ↓
+handles JSON data storage
+```
+
+## Status
+
+Day 13 completed.

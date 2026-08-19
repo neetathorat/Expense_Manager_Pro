@@ -1,12 +1,14 @@
 import database
 class ExpenseManager:
+    """Manage expenses and perform expense operations."""
     def __init__(self):
-        self.expense_list = database.load_expenses()
+        self.expenses = database.load_expenses()
 
     def add_expense(self):
+        """Add a new expense and save it to the database."""
         try:
             expense_id = int(input(" Enter id :"))
-            for expense in self.expense_list:
+            for expense in self.expenses:
                 if expense["id"] == expense_id:
                     print("Duplicate ID")
                     return False
@@ -30,15 +32,16 @@ class ExpenseManager:
             print("Invalid Category")
             return False
         new_expense = {"id":expense_id, "name": name, "amount":amount, "category":category}
-        self.expense_list.append(new_expense)
-        database.save_expenses(self.expense_list)
+        self.expenses.append(new_expense)
+        database.save_expenses(self.expenses)
         return True
 
     def view_expenses(self):
-        if not self.expense_list:
+        """Display all stored expenses."""
+        if not self.expenses:
             print("No expense found.")
             return
-        for expense in self.expense_list:
+        for expense in self.expenses:
             print(f"expense_id   : {expense['id']}")           
             print(f"name         : {expense['name']}")
             print(f"Amount       : {expense['amount']}") 
@@ -46,12 +49,13 @@ class ExpenseManager:
             print("-"*30)
 
     def edit_expense(self):
+        """Edit an existing expense and save the changes."""
         try:
             expense_id = int(input("Enter expense ID to edit: "))
 
             expense_to_edit = None
 
-            for expense in self.expense_list:
+            for expense in self.expenses:
                 if expense["id"] == expense_id:
                     expense_to_edit = expense
                     break
@@ -85,7 +89,7 @@ class ExpenseManager:
             expense_to_edit["amount"] = amount
             expense_to_edit["category"] = category
 
-            database.save_expenses(self.expense_list)
+            database.save_expenses(self.expenses)
 
             print("Expense updated successfully.")
 
@@ -93,12 +97,13 @@ class ExpenseManager:
             print("Invalid input.")
 
     def remove_expense(self):
+        """Remove an existing expense and save the changes."""
         try:
             expense_id = int(input("Enter expense ID to remove: "))
 
             expense_to_remove = None
 
-            for expense in self.expense_list:
+            for expense in self.expenses:
                 if expense["id"] == expense_id:
                     expense_to_remove = expense
                     break
@@ -107,8 +112,8 @@ class ExpenseManager:
                 print("Expense ID not found.")
                 return
 
-            self.expense_list.remove(expense_to_remove)
-            database.save_expenses(self.expense_list)
+            self.expenses.remove(expense_to_remove)
+            database.save_expenses(self.expenses)
 
             print("Expense removed successfully.")
 
@@ -118,8 +123,9 @@ class ExpenseManager:
 
 
     def calculate_total(self):
+        """Calculate and return the total expense amount."""
         total = 0
-        for expense in self.expense_list:
+        for expense in self.expenses:
             total += expense["amount"]
         return total
 
