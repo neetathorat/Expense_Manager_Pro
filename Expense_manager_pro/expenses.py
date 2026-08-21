@@ -122,12 +122,6 @@ class ExpenseManager:
 
 
 
-    def calculate_total(self):
-        """Calculate and return the total expense amount."""
-        total = 0
-        for expense in self.expenses:
-            total += expense["amount"]
-        return total
 
 
 

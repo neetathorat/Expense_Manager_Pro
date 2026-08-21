@@ -847,3 +847,28 @@ Stores persistent expense data
 
 **Version 2.0 completed.**
 
+# Day 15-16
+
+# 20-21 August
+
+## Expense Reports
+
+### Goal
+
+Add reporting and analysis features to Expense Manager Pro.
+
+---
+
+## Learned
+
+- Total expense calculation
+- Category-wise expense calculation
+- Filtering expenses by category
+- Sorting expenses by amount
+- Sorting category totals
+- Using `sorted()`
+- Using a function as the `key` argument
+- Using `reverse=True`
+- Passing data between modules
+- Separating report logic into `reports.py`
+- Separating user input from data processing

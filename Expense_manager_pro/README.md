@@ -70,16 +70,27 @@ The goal of this project is to build a complete expense management system while 
 - Save edited expenses to JSON
 - Save removed expenses to JSON
 - Handle invalid expense IDs during edit and remove operations
+- Calculate category-wise expense totals
+- Display category expense reports
+- Filter expenses by category
+- Sort expenses by amount
+- Sort expenses from lowest to highest
+- Sort expenses from highest to lowest
+- Sort category totals
+- Sort category totals from lowest to highest
+- Sort category totals from highest to lowest
+- Use functions as `sorted()` key functions
+- Added `reports.py` for expense reporting and analysis
 
 
 ### Planned
+
 - Automatic expense IDs
-- Expense categories and category-based operations
 - Monthly expense summary
 - Budget tracking
-- Data analysis
+- Advanced data analysis
 - AI-based spending insights
----
+- Automated testing
 
 ## Technologies Used
 
@@ -98,9 +109,10 @@ Expense_Manager_Pro/
 │
 ├── main.py
 ├── expenses.py
+├── reports.py
 ├── database.py
 ├── README.md
-└── PROJECT_LOG.md    
+└── PROJECT_LOG.md
     ```
 
 ---
@@ -127,9 +139,20 @@ Contains the `ExpenseManager` class and expense-related operations.
 - `view_expenses()`
 - `edit_expense()`
 - `remove_expense()`
-- `calculate_total()`
 - Maintains the expense data
 - Uses `database.py` for loading and saving JSON data
+
+### `reports.py`
+
+Contains expense reporting and analysis functions.
+
+- `calculate_total()`
+- `calculate_category_total()`
+- `filter_expenses()`
+- `get_amount()`
+- `sort_expenses_by_amount()`
+- `get_category_total()`
+- `sort_category_total()`
 
 ### `database.py`
 
@@ -311,6 +334,25 @@ Handles JSON data storage.
 - Verified the application after the previous refactoring and CRUD changes
 - Prepared the project for the Version 2.0 release
 
+### Day 15 & 16 — Expense Reports — 20 & 21 August 2026
+
+- Created `reports.py` for reporting and analysis
+- Added total expense calculation
+- Added category-wise expense calculation
+- Added category report
+- Added filtering by category
+- Added sorting expenses by amount
+- Added ascending and descending expense sorting
+- Added sorting of category totals
+- Added ascending and descending category-total sorting
+- Learned to use a function as the `key` argument of `sorted()`
+- Learned to use `reverse=True` for descending sorting
+- Kept user input handling in `main.py`
+- Passed `manager.expenses` to reporting functions
+- Separated reporting logic from CRUD operations
+- Removed duplicate total-calculation logic from `ExpenseManager`
+- Tested all reporting features
+
 ## Current Data Structure
 
 ### One Expense
@@ -376,46 +418,51 @@ Python expenses list
 
 ```text
 main.py
-    ↓
-ExpenseManager object
-    ↓
-self.expenses
-    ↓
-add_expense()
-view_expenses()
-calculate_total()
-    ↓
-database.py
-    ↓
-expenses.json
+   │
+   ├──→ expenses.py
+   │       └── ExpenseManager
+   │              └── self.expenses
+   │
+   ├──→ reports.py
+   │       ├── calculate_total()
+   │       ├── category reports
+   │       ├── filtering
+   │       └── sorting
+   │
+   └──→ database.py
+           └── JSON storage
 
----
 ```
+
 ## Current Menu
 
 ```text
 1. Add Expense
-2. View Expenses
+2. View Expense
 3. Edit Expense
 4. Remove Expense
 5. Show Total
-6. Exit
-
+6. Category Report
+7. Filter by Category
+8. Sort Expenses by Amount
+9. Sort Categories by Total
+10. Exit
 ```
 ## Known Limitations
 
 - Expense IDs are currently entered manually.
-- Expense search and filtering are not implemented yet.
-- Monthly summaries and reports are not implemented yet.
-- Expense categories are stored but category-based operations are not implemented yet.
+- Monthly expense summaries are not implemented yet.
+- Budget tracking is not implemented yet.
 - Automated tests are not implemented yet.
-
+- AI-based spending insights are not implemented yet.
 
 ## Next Development Step
 
 - Improve validation design
 - Review and reduce duplicated validation logic
 - Improve expense ID management
+- Add monthly expense summaries
+- Add budget tracking
 - Add automated testing
 - Improve application architecture before adding larger features
 
@@ -427,6 +474,10 @@ expenses.json
 - CRUD operations implemented
 - Code quality improvements completed
 - Version 2.0 released
+- Expense reporting implemented
+- Category filtering implemented
+- Expense sorting implemented
+- Category-total sorting implemented
 
 ## Learning Focus
 
